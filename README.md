@@ -19,23 +19,23 @@ go get -u github.com/lucasepe/totp
 package main
 
 import (
-	"fmt"
+    "fmt"
 
-	"github.com/lucasepe/totp"
+    "github.com/lucasepe/totp"
 )
 
 func main() {
-	code, err := totp.New(totp.Options{
-		Secret:   "JBSWY3DPEHPK3PXP",
-		Digits:   8,
-		Period:   15,
-		UnixTime: 32158800000,
-	})
-	if err != nil {
-		panic(err)
-	}
+    code, err := totp.New(totp.Options{
+        Secret:   "JBSWY3DPEHPK3PXP",
+        Digits:   8,
+        Period:   15,
+        UnixTime: 32158800000,
+    })
+    if err != nil {
+        panic(err)
+    }
 
-	fmt.Println(code)
+    fmt.Println(code)
 }
 ```
 
@@ -45,22 +45,22 @@ func main() {
 package main
 
 import (
-	"fmt"
+    "fmt"
 
-	"github.com/lucasepe/totp"
+    "github.com/lucasepe/totp"
 )
 
 func main() {
-	opts, err := totp.ParseURI("otpauth://totp/Acme?secret=IRXW4J3UEBKGK3DMEBAW46KPNZSSC")
-	if err != nil {
-		panic(err)
-	}
+    opts, err := totp.ParseURI("otpauth://totp/Acme?secret=IRXW4J3UEBKGK3DMEBAW46KPNZSSC")
+    if err != nil {
+        panic(err)
+    }
 
-	code, err := totp.New(opts)
-	if err != nil {
-		panic(err)
-	}
+    code, err := totp.New(opts)
+    if err != nil {
+        panic(err)
+    }
 
-	fmt.Println(code)
+    fmt.Println(code)
 }
 ```
